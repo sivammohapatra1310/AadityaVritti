@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Weather App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f5f5dc;
+        }
+
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        @media (max-width: 768px) {
+            .form-control {
+                width: 100%;
+            }
+
+            .navbar-toggler {
+                margin: 0 auto;
+            }
+
+            .navbar-collapse {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img.png" alt=""></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">About
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="usage.html">Instruction Manual</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="scalability.html">Scalability</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="usage.html">Usage</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input id="city" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit" id="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="my-4 text-center">Weather for <span id="cityname"></span></h1>
+        <main>
+            <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">Temperature</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Temperature is <span id="temp"></span>°C</li>
+                                <li>Min Temperature is <span id="min_temp"></span>°C</li>
+                                <li>Max Temperature is <span id="max_temp"></span>°C</li>
+
+
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary">Sunny Side Up</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm">
+                        <div class="card-header py-3">
+                            <h4 class="my-0 fw-normal">WEATHER</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <!-- <li>feels like <span id="feels_like"></span></li> -->
+                                <li>sunrise is <span id="sunrise"></span></li>
+                                <li>sunset is <span id="sunset"></span></li>
+                                <li>humidity <span id="humidity"></span>%</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary">I'm Sweatin'</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card mb-4 rounded-3 shadow-sm ">
+                        <div class="card-header py-3 ">
+                            <h4 class="my-0 fw-normal">WIND INFO</h4>
+                        </div>
+                        <div class="card-body">
+                            <ul class="list-unstyled mt-3 mb-4">
+                                <li>Cloud PCT is <span id="cloud_pct"></span>%</li>
+                                <li>Wind Speed is <span id="wind_speed"></span>km/h</li>
+                                <li>Wind Degrees is <span id="wind_degrees"></span>°</li>
+                            </ul>
+                            <button type="button" class="w-100 btn btn-lg btn-primary">Too Windy!!</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="display-6 text-center mb-4">Weather of Popular Places</h2>
+
+            <div class="table-responsive">
+                <table class="table text-center">
+                    <thead>
+                        <tr>
+                            <th style="width: 34%;"></th>
+                            <th style="width: 22%;">Cloud_pct</th>
+                            <th style="width: 22%;">Feels_like</th>
+                            <th style="width: 22%;">Humidity</th>
+                            <th style="width: 22%;">Max_temp</th>
+                            <th style="width: 22%;">Min_temp</th>
+                            <th style="width: 22%;">Sunrise</th>
+                            <th style="width: 22%;">Sunset</th>
+                            <th style="width: 22%;">Temp</th>
+                            <th style="width: 22%;">Wind_degrees</th>
+                            <th style="width: 22%;">Wind_speed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">Beijing</th>
+                            <td>75%</td>
+                            <td>28°C</td>
+                            <td>70%</td>
+                            <td>32°C</td>
+                            <td>20°C</td>
+                            <td>06:30 AM</td>
+                            <td>06:00 PM</td>
+                            <td>30°C</td>
+                            <td>120°</td>
+                            <td>10 km/h</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Hyderabad</th>
+                            <td>60%</td>
+                            <td>25°C</td>
+                            <td>65%</td>
+                            <td>30°C</td>
+                            <td>18°C</td>
+                            <td>06:15 AM</td>
+                            <td>05:45 PM</td>
+                            <td>28°C</td>
+                            <td>100°</td>
+                            <td>8 km/h</td>
+                        </tr>
+                    </tbody>
+
+                    <tbody>
+                        <tr>
+                            <th scope="row" class="text-start">Chennai</th>
+                            <td>80%</td>
+                            <td>30°C</td>
+                            <td>75%</td>
+                            <td>35°C</td>
+                            <td>25°C</td>
+                            <td>05:45 AM</td>
+                            <td>06:15 PM</td>
+                            <td>32°C</td>
+                            <td>90°</td>
+                            <td>12 km/h</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">New York</th>
+                            <td>50%</td>
+                            <td>22°C</td>
+                            <td>60%</td>
+                            <td>26°C</td>
+                            <td>18°C</td>
+                            <td>07:00 AM</td>
+                            <td>07:30 PM</td>
+                            <td>24°C</td>
+                            <td>240°</td>
+                            <td>15 km/h</td>
+                        </tr>
+
+                        <tr>
+                            <th scope="row" class="text-start">London</th>
+                            <td>70%</td>
+                            <td>18°C</td>
+                            <td>68%</td>
+                            <td>22°C</td>
+                            <td>15°C</td>
+                            <td>06:00 AM</td>
+                            <td>06:30 PM</td>
+                            <td>20°C</td>
+                            <td>180°</td>
+                            <td>10 km/h</td>
+                        </tr>
+                        <tr>
+                            <th scope="row" class="text-start">Adelaide</th>
+                            <td>55%</td>
+                            <td>28°C</td>
+                            <td>50%</td>
+                            <td>32°C</td>
+                            <td>25°C</td>
+                            <td>06:45 AM</td>
+                            <td>07:15 PM</td>
+                            <td>30°C</td>
+                            <td>150°</td>
+                            <td>12 km/h</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+    <center><div class="footer">
+        <p>&copy; 2024 AadityaVritti Weather App | INDIA</p>
+    </div>
+    <div id="footer-terms" class="footer-terms">
+		<a data-ga="Terms of Use" href="usage.html">
+			Terms of Use
+		</a>
+		|
+		<a data-ga="Privacy Policy" href="usage.html">
+			Privacy Policy
+		</a>
+	</div>
+</center>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
